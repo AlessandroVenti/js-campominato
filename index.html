@@ -31,6 +31,7 @@
     <div id="lol"></div>
 
     <script type="text/javascript">
+    
 
           // Il computer deve generare 16 numeri casuali tra 1 e 100.
           // I numeri non possono essere duplicati.
@@ -76,38 +77,61 @@
 
             console.log(computerArray);
 
-          }
-
-          randomArray();
-
-          function userArray() {
-
             var userArray = [];
 
             var count = 0;
 
-            for (let j = 0; j < 84; j++) {
+            for (let j = 0; j < 5; j++) {
 
               var randomUserNumber = parseInt(prompt("Inserisci un numero"));
 
               if (userArray.includes(randomUserNumber)) {
 
                 j--;
+
                 alert("Hai inserito un numero identico a uno dei precedenti!");
+
+              } else {
+
+                userArray.push(randomUserNumber);
+
+                if (computerArray.includes(randomUserNumber)) {
+
+                  alert("Hai perso! Il tuo punteggio totale: " + count);
+
+                  console.log("Hai perso! Il tuo punteggio totale: " + count);
+
+                  var wrongNumber = userArray.pop();
+
+                  console.log(userArray);
+
+                  console.log("Numero sbagliato: " + wrongNumber);
+
+                  break;
+
+                } else {
+
+                  count++;
+
+                  if (count === 5) {
+
+                    alert("Hai vinto! Punteggio totale: " + count);
+                    console.log("Hai vinto! Punteggio totale: " + count);
+                    console.log(userArray);
+
+                  }
+
+                }
+
               }
 
-              
-
-              
-
             }
+
           }
 
+          randomArray();
 
           
-
-          
-
     </script>
   </body>
 </html>
