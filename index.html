@@ -55,6 +55,8 @@
       // Ricordatevi che se non sappiamo quante volte dobbiamo fare una cosa ci serve.
 
 
+                                              //Esercizio base
+
       function randomArray() {
 
         var computerArray = [];
@@ -83,7 +85,7 @@
 
         for (let j = 0; j < 84; j++) {
 
-          var randomUserNumber = parseInt(prompt("Inserisci un numero"));
+          var randomUserNumber = parseInt(prompt("Inserisci un numero da 1 a 100"));
 
           if (userArray.includes(randomUserNumber)) {
 
@@ -116,7 +118,9 @@
               if (count === 84) {
 
                 alert("Hai vinto! Punteggio totale: " + count);
+
                 console.log("Hai vinto! Punteggio totale: " + count);
+                
                 console.log(userArray);
 
               }
@@ -129,88 +133,113 @@
 
       }
 
-      randomArray();
-
-
-                                          // Variante con parametri dinamici - Da terminare
-
-
-
-      // function randomArray() {
-
-      //   var computerArray = [];
-
-      //   for (let i = 0; i < 16; i++) {
-
-      //     var randomComputerNumber = Math.round(Math.random() * (100 - 1) + 1);
-
-      //     if ( computerArray.includes(randomComputerNumber) ) {
-
-      //       i--;
-            
-      //     } else {
-
-      //       computerArray.push(randomComputerNumber);
-
-      //     }
-
-      //   }
-
-      //   console.log(computerArray);
-
-      //   var userArray = [];
-
-      //   var count = 0;
-
-      //   for (let j = 0; j < 5; j++) {
-
-      //     var randomUserNumber = parseInt(prompt("Inserisci un numero"));
-
-      //     if (userArray.includes(randomUserNumber)) {
-
-      //       j--;
-
-      //       alert("Hai inserito un numero identico a uno dei precedenti!");
-
-      //     } else {
-
-      //       userArray.push(randomUserNumber);
-
-      //       if (computerArray.includes(randomUserNumber)) {
-
-      //         alert("Hai perso! Il tuo punteggio totale: " + count);
-
-      //         console.log("Hai perso! Il tuo punteggio totale: " + count);
-
-      //         var wrongNumber = userArray.pop();
-
-      //         console.log(userArray);
-
-      //         console.log("Numero sbagliato: " + wrongNumber);
-
-      //         break;
-
-      //       } else {
-
-      //         count++;
-
-      //         if (count === 5) {
-
-      //           alert("Hai vinto! Punteggio totale: " + count);
-      //           console.log("Hai vinto! Punteggio totale: " + count);
-      //           console.log(userArray);
-
-      //         }
-
-      //       }
-
-      //     }
-
-      //   }
-
-      // }
 
       // randomArray();
+
+
+                                          //Esercizio bonus
+
+      function randomArray2(difficulty) {
+
+        var computerArray = [];
+
+        for (let i = 0; i < 16; i++) {
+
+          if ( difficulty === 0) {
+
+            var randomComputerNumber = Math.round(Math.random() * (100 - 1) + 1);
+
+          } else if (difficulty === 1) {
+
+            var randomComputerNumber = Math.round(Math.random() * (80 - 1) + 1);
+
+          }else if (difficulty === 2) {
+
+            var randomComputerNumber = Math.round(Math.random() * (50 - 1) + 1);
+
+          }
+
+          if ( computerArray.includes(randomComputerNumber) ) {
+
+            i--;
+            
+          } else {
+
+            computerArray.push(randomComputerNumber);
+
+          }
+
+        }
+
+        console.log(computerArray);
+
+        var userArray = [];
+
+        var count = 0;
+
+        for (let j = 0; j < 84; j++) {
+
+          if ( difficulty === 0) {
+
+            var randomUserNumber = parseInt(prompt("Inserisci un numero da 1 a 100"));
+
+          } else if (difficulty === 1) {
+
+            var randomUserNumber = parseInt(prompt("Inserisci un numero da 1 a 80"));
+
+          }else if (difficulty === 2) {
+
+            var randomUserNumber = parseInt(prompt("Inserisci un numero da 1 a 50"));
+          }
+
+          if (userArray.includes(randomUserNumber)) {
+
+            j--;
+
+            alert("Hai inserito un numero identico a uno dei precedenti!");
+
+          } else {
+
+            userArray.push(randomUserNumber);
+
+            if (computerArray.includes(randomUserNumber)) {
+
+              alert("Hai perso! Il tuo punteggio totale: " + count);
+
+              console.log("Hai perso! Il tuo punteggio totale: " + count);
+
+              var wrongNumber = userArray.pop();
+
+              console.log(userArray);
+
+              console.log("Numero sbagliato: " + wrongNumber);
+
+              break;
+
+            } else {
+
+              count++;
+
+              if (count === 84) {
+
+                alert("Hai vinto! Punteggio totale: " + count);
+
+                console.log("Hai vinto! Punteggio totale: " + count);
+                
+                console.log(userArray);
+
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+
+      // randomArray2(parseInt(prompt("Inserisci difficoltà: \n 0: Livello facile \n 1: Livello medio \n 2: Livello difficile")));      
 
     </script>
   </body>
